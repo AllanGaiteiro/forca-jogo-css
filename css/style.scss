@@ -151,12 +151,12 @@ header {
 
     #cordaCabo {
         position: absolute;
-        top     : -234px;
-        left    : -700px;
+        top     : 120px;
+        left    : 288px;
 
         @media(max-width:700px) {
-            margin-left: -500px;
-            left       : -100%;
+            margin-left: 0px;
+            left       : 0%;
         }
     }
 

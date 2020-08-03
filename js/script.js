@@ -74,6 +74,7 @@ function tradePalavra(temas) {
     //alert(palvrEscolid)
     text.innerHTML = palvrEscolid
     res.innerHTML = palvrEscolid
+    
     letratext = text.innerHTML.match(/[abcdefghijklmnopqrstuvwxyz]/ig)
     maxletra = letratext.length
     //////alert(maxletra)
@@ -97,6 +98,7 @@ function carregar() {
     perd = 0
     maxButton = letras.match(/[abcdefghijklmnopqrstuvwxyz]/ig)
     var max = maxButton.length
+    divbot.innerHTML = null
     for (var i = 0; i < max; i++) {
         let l = letras.charAt(i)
         let btn = document.createElement('button')
@@ -148,8 +150,8 @@ function verde() {
     venc = text.innerHTML.match(/[-| |]/ig)
     if (venc.length == maxletra) {
         
-        alert(`<h2 style: "color:red">a palvra era ${text2.innerHTML}, Voce venceu</h2>`)
-        window.location.href = 'index.html';
+        alert(`a palavra era ${text2.innerHTML}, Voce venceu`)
+        //window.location.href = 'index.html';
     } else {
 
     }
