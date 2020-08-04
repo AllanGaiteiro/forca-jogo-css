@@ -26,6 +26,8 @@ var TodasPalavras = {
         'roma', 'quieve', 'bogotá', 'madrid'
     ],
     frutas: [
+        
+        
         'abacate',
         'abacaxi',
         'banana',
@@ -65,22 +67,33 @@ function tradePalavra(temas) {
         conjunt_Escolido = TodasPalavras.frutas
 
     }
-
-
-
-
-
     palvrEscolid = conjunt_Escolido[Math.floor(Math.random() * conjunt_Escolido.length)]
     //alert(palvrEscolid)
-    text.innerHTML = palvrEscolid
-    res.innerHTML = palvrEscolid
     
+    res.innerHTML = palvrEscolid
+    /// corrigir palavra(/ãáàéíìó/i)
+    //////a
+    palvrEscolid = palvrEscolid.replace(/ã/ig,'a')
+    palvrEscolid = palvrEscolid.replace(/á/ig,'a')
+    palvrEscolid = palvrEscolid.replace(/à/ig,'a')
+    //////e
+    palvrEscolid = palvrEscolid.replace(/é/ig,'e')
+    palvrEscolid = palvrEscolid.replace(/ê/ig,'e')
+    //////i
+    palvrEscolid = palvrEscolid.replace(/í/ig,'i')
+    //////o
+    palvrEscolid = palvrEscolid.replace(/ó/ig,'o')
+    palvrEscolid = palvrEscolid.replace(/õ/ig,'o')
+    palvrEscolid = palvrEscolid.replace(/ô/ig,'o')
+///////////////////////
+text.innerHTML = palvrEscolid
     letratext = text.innerHTML.match(/[abcdefghijklmnopqrstuvwxyz]/ig)
     maxletra = letratext.length
     //////alert(maxletra)
     //////////
     text2.innerHTML = null
-    for (var i = 0; i < maxletra; i++) {
+
+for (var i = 0; i < maxletra; i++) {
         text2.innerHTML += '-'
 
     }
@@ -96,6 +109,8 @@ function inicializar(p) {
 function carregar() {
     //// butons////
     perd = 0
+
+    
     maxButton = letras.match(/[abcdefghijklmnopqrstuvwxyz]/ig)
     var max = maxButton.length
     divbot.innerHTML = null
@@ -120,9 +135,15 @@ function red() {
     perd++
     //alert(perd)
     if (perd == 5) {
-        alert(' Voce perdeu')
-        window.location.href = 'index.html';
-        //window.open('index.html')
+        document.querySelector('div#resultado').style.opacity = 1
+        document.querySelector('Div#perdeu').style.display = 'block'
+        document.querySelector('p#VALOR_Resp').innerHTML = res.innerHTML
+        setTimeout(function () {
+            window.location.href = 'index.html';
+        },5000)
+        
+        
+        
     }
 
 }
@@ -149,9 +170,9 @@ function verde() {
 
     venc = text.innerHTML.match(/[-| |]/ig)
     if (venc.length == maxletra) {
-        
-        alert(`a palavra era ${text2.innerHTML}, Voce venceu`)
-        //window.location.href = 'index.html';
+        document.querySelector('div#resultado').style.opacity = 1
+        document.querySelector('Div#venceu').style.display = 'block'
+        document.querySelector('p#VALOR_Resp').innerHTML = res.innerHTML
     } else {
 
     }
