@@ -103,6 +103,7 @@ for (var i = 0; i < maxletra; i++) {
 
 function inicializar(p) {
     var temas = p
+    document.querySelector('Div#venceu').style.display = 'none'
     tradePalavra(temas)
     carregar()
 }
@@ -132,6 +133,7 @@ function carregar() {
 }
 function red() {
     this.style.backgroundColor = 'red'
+    tocarSom('erro')
     perd++
     //alert(perd)
     if (perd == 5) {
@@ -149,6 +151,7 @@ function red() {
 }
 function verde() {
     this.style.backgroundColor = 'chartreuse'
+    tocarSom('acerto')
     //alert(text.innerHTML.indexOf(this.innerHTML))
     do {
         positIni = text.innerHTML.indexOf(this.innerHTML)
